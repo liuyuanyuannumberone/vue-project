@@ -8,5 +8,6 @@
 ####  please give me a star 
 
 #####小白上路
+####git不会用啊，伤心难过啊
 
 ##[主流开源协议之间有何异同？](https://www.zhihu.com/question/19568896)
