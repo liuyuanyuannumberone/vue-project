@@ -53,7 +53,6 @@
       git status
       git add .
       git commit -m "init my project"
-
       git remote add origin https://gitee.com/liuyuanyuannumberone/Vue-project.git
-      git push -u origin master
-      git commit --amend
+      git push -u origin master   本地库的所有内容推送到远程库上：
+
