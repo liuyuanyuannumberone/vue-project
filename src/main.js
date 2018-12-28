@@ -3,6 +3,9 @@ import 'bootstrap/dist/css/bootstrap.css'  //通过路径的形式去使用node_
 import '../lib/mui/css/mui.min.css'   //和 bootstrap用法完全一样
 import 'vue-easytable/umd/css/index.css'
 import 'mint-ui/lib/style.css'
+import '../lib/mui/css/icons-extra.css'
+import '../lib/mui/fonts/mui.ttf'
+import '../lib/mui/fonts/mui-icons-extra.ttf'
 import 'beautify-scrollbar/dist/index.css';
 import 'v2-table/dist/index.css';
 import './index.css'
@@ -16,7 +19,7 @@ import {VTable,VPagination} from 'vue-easytable'
 
 //路由模块
 import VueRouter from 'vue-router'
-import router from './routes/router'
+import router from '../routes/router'
 Vue.use(VueRouter);
 
 //导入Mint UI--基于 Vue.js 的移动端组件库

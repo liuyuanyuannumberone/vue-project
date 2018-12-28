@@ -56,7 +56,7 @@
       git remote add origin https://gitee.com/liuyuanyuannumberone/Vue-project.git
       git push -u origin master   本地库的所有内容推送到远程库上：
 
-      下次提交：
+      下次提交： 修改过的代码块会用蓝色标注
       git add -A 是将所有的修改都提交。你可以用git status查看当前的变化，然后通过git add xxx有选择的提交。
       git commit 是将变化先提交到本地。
       git push -u origin master
