@@ -17,7 +17,7 @@
     methods: {
       //轮播图
       carousel(){
-        
+
       }
     }
   }
