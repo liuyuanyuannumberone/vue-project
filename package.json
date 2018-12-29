@@ -38,6 +38,7 @@
     "vue": "^2.5.2",
     "vue-easy-toast": "^1.0.5",
     "vue-easytable": "^1.7.1",
+    "vue-resource": "^1.5.1",
     "vue-router": "^3.0.2"
   }
 }
