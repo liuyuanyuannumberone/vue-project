@@ -4,11 +4,13 @@ import '../lib/mui/css/mui.min.css'   //和 bootstrap用法完全一样
 import 'vue-easytable/umd/css/index.css'
 import 'mint-ui/lib/style.css'
 import '../lib/mui/css/icons-extra.css'
+import '../lib/mui/css/mui.css'
 import '../lib/mui/fonts/mui.ttf'
 import '../lib/mui/fonts/mui-icons-extra.ttf'
 import 'beautify-scrollbar/dist/index.css';
 import 'v2-table/dist/index.css';
 import './index.css'
+
 
 //导入组件
 import Vue from 'vue'
