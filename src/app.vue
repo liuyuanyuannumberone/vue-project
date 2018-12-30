@@ -7,7 +7,6 @@
         <router-link to="/vueEasyTableTwo">vueEasyTableTwo</router-link>
         <router-link to="/tableBeautifyScrollbar">v2-tableBeautifyScrollbar</router-link>
         <router-view></router-view>-->
-
         <!--顶部Header区域-->
         <mt-header fixed title="Vue项目"></mt-header>
         <!--/顶部Header区域-->
