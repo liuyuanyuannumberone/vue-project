@@ -11,7 +11,7 @@ import HomeContainer from '../src/components/tabbar/HomeContainer.vue'
 import MemberContainer from '../src/components/tabbar/MemberContainer.vue'
 import ShopcarContainer from '../src/components/tabbar/ShopcarContainer.vue'
 import SearchContainer from '../src/components/tabbar/SearchContainer.vue'
-
+import NewsList from '../src/components/news/NewsList.vue'
 
 var router = new VueRouter({
   routes: [
@@ -28,7 +28,8 @@ var router = new VueRouter({
     {path: '/vueEasyTableTwo', component: vueEasyTableTwo},
     {path: '/tableBeautifyScrollbar', component: tableBeautifyScrollbar},
 
-    {path: '/home', component: HomeContainer},
+    {path: '/home', component: HomeContainer,},
+    {path: '/home/newslist', component: NewsList},  //这样写也可以
     {path: '/member', component: MemberContainer},
     {path: '/shopcar', component: ShopcarContainer},
     {path: '/search', component: SearchContainer},

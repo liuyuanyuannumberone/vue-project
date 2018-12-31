@@ -12,10 +12,10 @@
 
         <ul class="mui-table-view mui-grid-view mui-grid-9">
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                <a href="#">
+                <router-link to="/home/newslist">
                     <img src="../../common/images/liugongge/menu1.png" alt="">
                     <div class="mui-media-body">新闻资讯</div>
-                </a>
+                </router-link>
             </li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
                 <a href="#">
@@ -49,7 +49,6 @@
             </li>
         </ul>
         <!--/六宫格-->
-
     </div>
 </template>
 <script>
@@ -75,19 +74,18 @@
       this.getCarousel();
     },
     methods: {
-      //轮播图
+      //获取轮播图
       getCarousel(){
         this.carouselList = [
           {img: img01, url: 'http://vue01.com'},
           {img: img02, url: 'http://vue02.com'},
           {img: img03, url: 'http://vue03.com'},
         ];
-
-     /*   Toast({
-          message: '加载轮播图成功',
-          position: 'top',
-          duration: 1000
-        });*/
+          /*   Toast({
+           message: '加载轮播图成功',
+           position: 'top',
+           duration: 1000
+           });*/
         //   vue-resource请求轮播图
           /*  this.$http.get('http://vue.studyit.io/api/getlunbo').then(res => {
            if (res.body.status === 0) {
@@ -100,7 +98,6 @@
     }
   }
 </script>
-
 <style lang="scss" scoped>
     .mint-swipe {
         height: 200px;
@@ -130,11 +127,11 @@
         .mui-table-view-cell {
             border: none;
         }
-        img {  //原来图片大小的一半
+        img { //原来图片大小的一半
             width: 60px;
             height: 60px;
         }
-        .mui-media-body{
+        .mui-media-body {
             font-size: 13px;
         }
     }

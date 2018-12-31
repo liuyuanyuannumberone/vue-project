@@ -49,6 +49,7 @@
         import './css/index.scss'
       import 'bootstrap/dist/css/bootstrap.css'  //通过路径的形式去使用node_modules下面的文件，直接以包的名称开始引用；
 
+
       git init
       git status
       git add .
