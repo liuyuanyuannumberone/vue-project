@@ -87,7 +87,7 @@
            duration: 1000
            });*/
         //   vue-resource请求轮播图
-          /*  this.$http.get('http://vue.studyit.io/api/getlunbo').then(res => {
+          /*  this.$http.get('api/getlunbo').then(res => {
            if (res.body.status === 0) {
            this.carouselList = res.body.message;
            } else {

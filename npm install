@@ -62,3 +62,6 @@
       git commit 是将变化先提交到本地。
       git push -u origin master
 
+
+      git log --pretty=oneline
+
