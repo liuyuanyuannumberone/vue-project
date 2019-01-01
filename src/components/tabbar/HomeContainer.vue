@@ -11,37 +11,37 @@
         <!--六宫格-->
         <ul class="mui-table-view mui-grid-view mui-grid-9">
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                <router-link to="/home/newslist">
+                <router-link to="/home/newslist" class="textDecoration">
                     <img src="../../common/images/liugongge/menu1.png" alt="">
                     <div class="mui-media-body">新闻资讯</div>
                 </router-link>
             </li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                <router-link to="/home/photolist">
+                <router-link to="/home/photolist"  class="textDecoration">
                     <img src="../../common/images/liugongge/menu2.png" alt="">
                     <div class="mui-media-body">图片分享</div>
                 </router-link>
             </li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                <a href="#">
+                <a href="#"  class="textDecoration">
                     <img src="../../common/images/liugongge/menu3.png" alt="">
                     <div class="mui-media-body">商品购买</div>
                 </a>
             </li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                <a href="#">
+                <a href="#"  class="textDecoration">
                     <img src="../../common/images/liugongge/menu4.png" alt="">
                     <div class="mui-media-body">留言反馈</div>
                 </a>
             </li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                <a href="#">
+                <a href="#"  class="textDecoration">
                     <img src="../../common/images/liugongge/menu5.png" alt="">
                     <div class="mui-media-body">视频专区</div>
                 </a>
             </li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                <a href="#">
+                <a href="#"  class="textDecoration">
                     <img src="../../common/images/liugongge/menu6.png" alt="">
                     <div class="mui-media-body">联系我们</div>
                 </a>
@@ -126,9 +126,15 @@
         .mui-table-view-cell {
             border: none;
         }
+        .textDecoration{
+            text-decoration: none;
+        }
         img { //原来图片大小的一半
             width: 60px;
             height: 60px;
+        }
+        .mui-media{
+            text-decoration: none;
         }
         .mui-media-body {
             font-size: 13px;
