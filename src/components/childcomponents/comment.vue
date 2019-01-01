@@ -2,9 +2,9 @@
     <div class="comment">
         <h3>发表评论</h3>
         <hr>
-        <textarea placeholder="发表评论(最多120字)" maxlength="120">
+        <textarea placeholder="发表评论(最多120字)" maxlength="120" v-model="commentContent">
         </textarea>
-        <mt-button type="primary" size="large">发表评论</mt-button>
+        <mt-button type="primary" size="large" @click="postComments">发表评论</mt-button>
         <div class="cmt-list">
             <div class="cmt-item" v-for="(item,index) in comments" :key="item.user_name">
                 <div class="cmt-title">
@@ -36,7 +36,8 @@
           {user_name: '匿名用户18', add_time: new Date(), content: "考研了还会考博士么"},
           {user_name: '匿名用户19', add_time: new Date(), content: "研究生好毕业么"},
           {user_name: '匿名用户20', add_time: new Date(), content: "工作的目的是神么"},
-        ],
+        ], //模拟加载更多数据
+        commentContent: '',
       }
     },
     props: ['transid'],
@@ -80,8 +81,27 @@
 
         //vue-resource实现
 //        this.getComments();
+      },
+      postComments(){   //发表评论--校验发表内容是否为空
+        if (!this.commentContent.trim()) {
+          Toast('评论内容不能为空');
+          return;
+        }
+        var comment = {user_name: '匿名用户', add_time: new Date(), content: this.commentContent};
+        this.comments.unshift(comment);
+        this.commentContent = '';
 
-
+        //vue-resource 发表评论
+        //定义提交时候，表单中的数据格式{emulateJSON:true},已经全局配置数据表单提交格式
+          /*     this.$http.post('api/postcomments/' + this.transid,{content: this.commentContent.trim()}).then(res => {
+           if (res.body.status === 0) {
+           var comment={user_name:'匿名用户',add_time:new Date(),content:this.commentContent};
+           this.comments.unshift(comment);
+           this.commentContent='';
+           } else {
+           Toast('发表评论失败!');
+           }
+           })*/
       }
     }
   }

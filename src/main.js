@@ -23,6 +23,8 @@ import  VueResource from 'vue-resource'
 Vue.use(VueResource);
 //配置请求根路径
 Vue.http.options.root = 'http://vue.studyit.io';
+Vue.http.options.emulateJSON = true;   //全局设置post时候数据表单格式组织形式
+//如果您的Web服务器无法处理编码为的请求application/json，则可以启用该emulateJSON选项。这将以application/x-www-form-urlencodedMIME类型的形式发送请求，就像从普通的HTML表单一样。
 
 //定义全局过滤器
 //导入格式化时间的插件
