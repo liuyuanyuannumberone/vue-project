@@ -10,9 +10,7 @@
         <div class="content" v-html="newsInfo.content"></div>
         <!--/内容区-->
         <!--评论子组件-->
-        <comment>
-
-        </comment>
+        <comment :transid="this.id"></comment>
         <!--/评论子组件-->
     </div>
 </template>
