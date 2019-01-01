@@ -58,15 +58,15 @@
           {user_name: '匿名用户10', add_time: new Date(), content: "工作的目的是神么"},
         ];
         //vue-resource 请求评论详情
-        this.$http.get("api/getcomponents/" + this.transid + "?pageindex=" + this.pageIndex).then(res => {
-          if (res.body.status === 0) {
-//            this.comments = res.body.message;
-            //新数据不会被覆盖,而是追加;
-            this.comments = this.comments.concat(res.body.message);
-          } else {
-            Toast('新闻评论加载失败!');
-          }
-        })
+          /*    this.$http.get("api/getcomponents/" + this.transid + "?pageindex=" + this.pageIndex).then(res => {
+           if (res.body.status === 0) {
+           //            this.comments = res.body.message;
+           //新数据不会被覆盖,而是追加;
+           this.comments = this.comments.concat(res.body.message);
+           } else {
+           Toast('新闻评论加载失败!');
+           }
+           })*/
       },
       getMoreInfo(){   //加载更多
         this.pageIndex++;
@@ -79,7 +79,7 @@
         this.comments = this.comments.concat(this.comments1);
 
         //vue-resource实现
-        this.getComments();
+//        this.getComments();
 
 
       }
