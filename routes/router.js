@@ -1,6 +1,7 @@
 import VueRouter from 'vue-router'
 import account from '../src/components/account.vue'
 import goodlist from '../src/components/goodlist.vue'
+import bootstrap from '../src/components/bootstrap.vue'
 import login from '../src/subcomponents/login.vue'
 import register from '../src/subcomponents/register.vue'
 import vueEasyTable from '../src/components/vueEasyTable.vue'
@@ -26,6 +27,7 @@ var router = new VueRouter({
       ]
     },
     {path: '/goodlist', component: goodlist},
+    {path: '/bootstrap', component: bootstrap},
     {path: '/vueEasyTable', component: vueEasyTable},
     {path: '/vueEasyTableTwo', component: vueEasyTableTwo},
     {path: '/tableBeautifyScrollbar', component: tableBeautifyScrollbar},

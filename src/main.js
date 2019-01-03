@@ -51,6 +51,10 @@ import V2Table from 'v2-table';
 Vue.use(V2Table);
 
 //导入js
+//  import $ from 'jquery'
+// import  'jquery/dist/jquery.min'
+
+import 'bootstrap/dist/js/bootstrap.min'
 import 'vue-easytable/umd/js/index'
 import test, {title, content} from './test.js'
 
