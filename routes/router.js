@@ -2,6 +2,10 @@ import VueRouter from 'vue-router'
 import account from '../src/components/account.vue'
 import goodlist from '../src/components/goodlist.vue'
 import bootstrap from '../src/components/bootstrap.vue'
+import vuebootstrap from '../src/components/vuebootstrap.vue'
+import elementUI from '../src/components/elementUI.vue'
+import iview from '../src/components/iview.vue'
+import materialize from '../src/components/materialize.vue'
 import login from '../src/subcomponents/login.vue'
 import register from '../src/subcomponents/register.vue'
 import vueEasyTable from '../src/components/vueEasyTable.vue'
@@ -28,6 +32,10 @@ var router = new VueRouter({
     },
     {path: '/goodlist', component: goodlist},
     {path: '/bootstrap', component: bootstrap},
+    {path: '/vuebootstrap', component: vuebootstrap},
+    {path: '/elementui', component: elementUI},
+    {path: '/iview', component: iview},
+    {path: '/materialize', component: materialize},
     {path: '/vueEasyTable', component: vueEasyTable},
     {path: '/vueEasyTableTwo', component: vueEasyTableTwo},
     {path: '/tableBeautifyScrollbar', component: tableBeautifyScrollbar},
