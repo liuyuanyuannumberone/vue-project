@@ -1,5 +1,8 @@
 //导入样式
+//bootstrap
 import 'bootstrap/dist/css/bootstrap.css'  //通过路径的形式去使用node_modules下面的文件，直接以包的名称开始引用；
+
+//mui
 import '../lib/mui/css/mui.min.css'   //和 bootstrap用法完全一样
 import 'vue-easytable/umd/css/index.css'
 import 'mint-ui/lib/style.css'
@@ -7,8 +10,11 @@ import '../lib/mui/css/icons-extra.css'
 import '../lib/mui/css/mui.css'
 import '../lib/mui/fonts/mui.ttf'
 import '../lib/mui/fonts/mui-icons-extra.ttf'
+
+//v2-table
 import 'beautify-scrollbar/dist/index.css';
 import 'v2-table/dist/index.css';
+
 import './index.css'
 
 
@@ -16,7 +22,7 @@ import './index.css'
 import Vue from 'vue'
 import app from './app.vue'
 
-// 导入 table 和 分页组件
+// 导入 table 和 分页组件  vue-easytable
 import {VTable, VPagination} from 'vue-easytable'
 //导入vue-resource
 import  VueResource from 'vue-resource'
