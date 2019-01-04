@@ -11,8 +11,8 @@ import '../lib/mui/fonts/mui.ttf'
 import '../lib/mui/fonts/mui-icons-extra.ttf'
 
 //导入materialize Google 材质设计（Material Design）for web
-import '../lib/materialize/css/materialize.min.css'
-import '../lib/materialize/js/materialize.min'
+// import '../lib/materialize/css/materialize.min.css'
+// import '../lib/materialize/js/materialize.min'
 
 import 'vue-easytable/umd/css/index.css'
 import 'mint-ui/lib/style.css'
