@@ -14,7 +14,7 @@
         </div>
         <!--/顶部滑动条-->
         <!--图片列表区域-->
-        <ul>
+        <ul class="photo-list">
             <li v-for="item in list" :key="item.id">
                 <img v-lazy="item.img_url">
             </li>
@@ -168,14 +168,24 @@
         .mui-control-item {
             text-decoration: none;
         }
-        img {
-            width: 100%;
-            height: 100%;
-        }
-        img[lazy=loading] {
-            width: 100%;
-            height: 300px;
-            margin: auto;
+        .photo-list {
+            padding:10px;
+            padding-bottom: 0;
+            list-style: none;
+            li {         /*图片懒加载*/
+                text-align: center;
+                background-color: #ccc;
+                margin-bottom: 10px;
+                img[lazy=loading] {
+                    width: 40px;
+                    height: 300px;
+                    margin: auto;
+                }
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
         }
     }
 </style>
