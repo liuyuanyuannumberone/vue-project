@@ -15,9 +15,13 @@
         <!--/顶部滑动条-->
         <!--图片列表区域-->
         <ul class="photo-list">
-            <li v-for="item in list" :key="item.id">
+            <router-link v-for="item in list" :key="item.id" :to="'/home/photoinfo/'+item.id" tag="li">
                 <img v-lazy="item.img_url">
-            </li>
+                <div class="info">
+                    <h1 class="info-title">{{item.title}}</h1>
+                    <div class="info-body">{{item.zhaiyao}}</div>
+                </div>
+            </router-link>
         </ul>
         <!--/图片列表区域-->
     </div>
@@ -92,21 +96,51 @@
       getPhotoListByCateId(cateId){
         if (cateId === 1) {
           this.list = [
-            {id: 1, img_url: img1},
-            {id: 2, img_url: img2},
-            {id: 3, img_url: img3},
-            {id: 4, img_url: img4},
-            {id: 5, img_url: img5},
-            {id: 6, img_url: img6},
-            {id: 7, img_url: img7},
-            {id: 8, img_url: img8},
-            {id: 9, img_url: img9},
-            {id: 10, img_url: img10},
-            {id: 11, img_url: img11},
-            {id: 12, img_url: img12},
-            {id: 13, img_url: img13},
-            {id: 14, img_url: img14},
-            {id: 15, img_url: img15},
+            {id: 1, img_url: img1, title: "我是最帅的男人，我最大", zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，所以要多注意喝水，所以要多注意喝水，所以要多注意喝水，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"},
+            {id: 2, img_url: img2, title: "我是最帅的男人，我最大", zhaiyao: "最近感冒·的人特别多，所，所以要多注意喝水，所以要多注意喝水，所以要多注意喝水，所以要多注意喝水以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"},
+            {id: 3, img_url: img3, title: "我是最帅的男人，我最大", zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"},
+            {id: 4, img_url: img4, title: "我是最帅的男人，我最大", zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"},
+            {id: 5, img_url: img5, title: "我是最帅的男人，我最大", zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康，所以要多注意喝水，所以要多注意喝水，所以要多注意喝水啊啊"},
+            {id: 6, img_url: img6, title: "我是最帅的男人，我最大", zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"},
+            {id: 7, img_url: img7, title: "我是最帅的男人，我最大", zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊，所以要多注意喝水，所以要多注意喝水，所以要多注意喝水，所以要多注意喝水，所以要多注意喝水，所以要多注意喝水，所以要多注意喝水，所以要多注意喝水，所以要多注意喝水啊"},
+            {id: 8, img_url: img8, title: "我是最帅的男人，我最大", zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜，所以要多注意喝水，所以要多注意喝水，所以要多注意喝水，所以要多注意喝水，所以要多注意喝水，所以要多注意喝水，所以要多注意喝水，所以要多注意喝水，所以要多注意喝水健康啊啊"},
+            {id: 9, img_url: img9, title: "我是最帅的男人，我最大", zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"},
+            {
+              id: 10,
+              img_url: img10,
+              title: "我是最帅的男人，我最大",
+              zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"
+            },
+            {
+              id: 11,
+              img_url: img11,
+              title: "我是最帅的男人，我最大",
+              zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"
+            },
+            {
+              id: 12,
+              img_url: img12,
+              title: "我是最帅的男人，我最大",
+              zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"
+            },
+            {
+              id: 13,
+              img_url: img13,
+              title: "我是最帅的男人，我最大",
+              zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"
+            },
+            {
+              id: 14,
+              img_url: img14,
+              title: "我是最帅的男人，我最大",
+              zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"
+            },
+            {
+              id: 15,
+              img_url: img15,
+              title: "我是最帅的男人，我最大",
+              zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"
+            },
           ]
           //vue-resource请求图片列表
             /*  this.$http.get('api/getimages/' + cateId).then(res => {
@@ -118,39 +152,99 @@
              })*/
         } else if (cateId === 2) {
           this.list = [
-            {id: 6, img_url: img6},
-            {id: 7, img_url: img7},
-            {id: 8, img_url: img8},
-            {id: 9, img_url: img9},
-            {id: 10, img_url: img10},
-            {id: 11, img_url: img11},
-            {id: 1, img_url: img1},
-            {id: 2, img_url: img2},
-            {id: 3, img_url: img3},
-            {id: 4, img_url: img4},
-            {id: 5, img_url: img5},
-            {id: 12, img_url: img12},
-            {id: 13, img_url: img13},
-            {id: 14, img_url: img14},
-            {id: 15, img_url: img15},
+            {id: 6, img_url: img6, title: "我是最帅的男人，我最大", zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"},
+            {id: 7, img_url: img7, title: "我是最帅的男人，我最大", zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"},
+            {id: 8, img_url: img8, title: "我是最帅的男人，我最大", zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"},
+            {id: 9, img_url: img9, title: "我是最帅的男人，我最大", zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"},
+            {
+              id: 10,
+              img_url: img10,
+              title: "我是最帅的男人，我最大",
+              zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"
+            },
+            {
+              id: 11,
+              img_url: img11,
+              title: "我是最帅的男人，我最大",
+              zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"
+            },
+            {id: 1, img_url: img1, title: "我是最帅的男人，我最大", zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"},
+            {id: 2, img_url: img2, title: "我是最帅的男人，我最大", zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"},
+            {id: 3, img_url: img3, title: "我是最帅的男人，我最大", zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"},
+            {id: 4, img_url: img4, title: "我是最帅的男人，我最大", zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"},
+            {id: 5, img_url: img5, title: "我是最帅的男人，我最大", zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"},
+            {
+              id: 12,
+              img_url: img12,
+              title: "我是最帅的男人，我最大",
+              zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"
+            },
+            {
+              id: 13,
+              img_url: img13,
+              title: "我是最帅的男人，我最大",
+              zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"
+            },
+            {
+              id: 14,
+              img_url: img14,
+              title: "我是最帅的男人，我最大",
+              zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"
+            },
+            {
+              id: 15,
+              img_url: img15,
+              title: "我是最帅的男人，我最大",
+              zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"
+            },
           ]
         } else {
           this.list = [
-            {id: 15, img_url: img15},
-            {id: 14, img_url: img14},
-            {id: 13, img_url: img13},
-            {id: 12, img_url: img12},
-            {id: 1, img_url: img1},
-            {id: 2, img_url: img2},
-            {id: 3, img_url: img3},
-            {id: 4, img_url: img4},
-            {id: 5, img_url: img5},
-            {id: 6, img_url: img6},
-            {id: 7, img_url: img7},
-            {id: 8, img_url: img8},
-            {id: 9, img_url: img9},
-            {id: 10, img_url: img10},
-            {id: 11, img_url: img11},
+            {
+              id: 15,
+              img_url: img15,
+              title: "我是最帅的男人，我最大",
+              zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"
+            },
+            {
+              id: 14,
+              img_url: img14,
+              title: "我是最帅的男人，我最大",
+              zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"
+            },
+            {
+              id: 13,
+              img_url: img13,
+              title: "我是最帅的男人，我最大",
+              zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"
+            },
+            {
+              id: 12,
+              img_url: img12,
+              title: "我是最帅的男人，我最大",
+              zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"
+            },
+            {id: 1, img_url: img1, title: "我是最帅的男人，我最大", zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"},
+            {id: 2, img_url: img2, title: "我是最帅的男人，我最大", zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"},
+            {id: 3, img_url: img3, title: "我是最帅的男人，我最大", zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"},
+            {id: 4, img_url: img4, title: "我是最帅的男人，我最大", zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"},
+            {id: 5, img_url: img5, title: "我是最帅的男人，我最大", zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"},
+            {id: 6, img_url: img6, title: "我是最帅的男人，我最大", zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"},
+            {id: 7, img_url: img7, title: "我是最帅的男人，我最大", zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"},
+            {id: 8, img_url: img8, title: "我是最帅的男人，我最大", zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"},
+            {id: 9, img_url: img9, title: "我是最帅的男人，我最大", zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"},
+            {
+              id: 10,
+              img_url: img10,
+              title: "我是最帅的男人，我最大",
+              zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"
+            },
+            {
+              id: 11,
+              img_url: img11,
+              title: "我是最帅的男人，我最大",
+              zhaiyao: "最近感冒·的人特别多，所以要多注意喝水，早睡觉，少玩手机多看报，生命是革命的本钱，所以要珍惜健康啊啊"
+            },
 
 
           ]
@@ -169,13 +263,14 @@
             text-decoration: none;
         }
         .photo-list {
-            padding:10px;
+            padding: 10px;
             padding-bottom: 0;
             list-style: none;
-            li {         /*图片懒加载*/
+            li { /*图片懒加载*/
                 text-align: center;
                 background-color: #ccc;
                 margin-bottom: 10px;
+                position: relative;
                 img[lazy=loading] {
                     width: 40px;
                     height: 300px;
@@ -184,6 +279,20 @@
                 img {
                     width: 100%;
                     height: 100%;
+                }
+                .info {
+                    color: #fff;
+                    text-align: left;
+                    position: absolute;
+                    background-color: rgba(0,0,0,0.4);
+                    bottom:0;
+                    max-height: 80px;
+                    .info-title {
+                        font-size: 14px;
+                    }
+                    .info-body {
+                        font-size: 13px;
+                    }
                 }
             }
         }

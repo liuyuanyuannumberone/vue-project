@@ -56,6 +56,10 @@
         overflow-x: hidden; //组件切换动画，x轴无滚动条
     }
 
+    .mint-header {
+        z-index: 99;
+    }
+
     a:hover, a:focus {
         text-decoration: none;
     }

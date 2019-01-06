@@ -68,7 +68,19 @@ import MintUI from 'mint-ui'    //样式文件需要单独引入。
 Vue.use(MintUI);
 import V2Table from 'v2-table';
 Vue.use(V2Table);
-
+//安装图片预览插件
+import VuePreview from 'vue-preview'
+Vue.use(VuePreview);
+// Vue.use(preview, {
+//   mainClass: 'pswp--minimal--dark',
+//   barsSize: {top: 0, bottom: 0},
+//   captionEl: false,
+//   fullscreenEl: false,
+//   shareEl: false,
+//   bgOpacity: 0.85,
+//   tapToClose: true,
+//   tapToToggleControls: false
+// });
 //导入js
 //  import $ from 'jquery'
 // import  'jquery/dist/jquery.min'

@@ -19,6 +19,7 @@ import SearchContainer from '../src/components/tabbar/SearchContainer.vue'
 import NewsList from '../src/components/news/NewsList.vue'
 import NewsInfo from '../src/components/news/NewsInfo.vue'
 import PhotoList from '../src/components/photos/PhotoList.vue'
+import Photoinfo from '../src/components/photos/Photoinfo.vue'
 
 var router = new VueRouter({
   routes: [
@@ -44,6 +45,7 @@ var router = new VueRouter({
     {path: '/home/newslist', component: NewsList},  //这样写也可以
     {path: '/home/newsinfo/:id', component: NewsInfo}, //带参数的路径
     {path: '/home/photolist', component: PhotoList},
+    {path: '/home/photoinfo/:id', component: Photoinfo},
     {path: '/member', component: MemberContainer},
     {path: '/shopcar', component: ShopcarContainer},
     {path: '/search', component: SearchContainer},
