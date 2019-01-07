@@ -25,6 +25,7 @@ import './index.css'
 
 //导入组件
 import Vue from 'vue'
+import "./components/global"
 import app from './app.vue'
 
 //引入bootstrap-vue

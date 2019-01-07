@@ -6,7 +6,7 @@
                  class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
                 <div class="mui-scroll">
                     <a :class="['mui-control-item',item.id==1?'mui-active':'']" v-for="item in cates" :key="item.id"
-                       @click="getPhotoListByCateId(item.id)">
+                       @tap="getPhotoListByCateId(item.id)">     <!--tap为mui特有,也是点击事件，这么做因为在手机端测试顶部菜单栏没有栏目的，不显示空白-->
                         {{item.title}}
                     </a>
                 </div>
