@@ -23,10 +23,10 @@
                 </router-link>
             </li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                <a href="#"  class="textDecoration">
+                <router-link to="/home/goodslist"  class="textDecoration">
                     <img src="../../common/images/liugongge/menu3.png" alt="">
                     <div class="mui-media-body">商品购买</div>
-                </a>
+                </router-link>
             </li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
                 <a href="#"  class="textDecoration">
