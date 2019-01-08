@@ -2,11 +2,7 @@
     <div>
         <h1 style="display: none;">home</h1>
         <!--轮播图区域-->
-        <mt-swipe :auto="4000">
-            <mt-swipe-item v-for="item in carouselList" :key="item.url">
-                <img :src="item.img" alt="">
-            </mt-swipe-item>
-        </mt-swipe>
+        <swipe :carouselList="carouselList" :isfull="true"></swipe>
         <!--/轮播图区域-->
         <!--六宫格-->
         <ul class="mui-table-view mui-grid-view mui-grid-9">
@@ -17,31 +13,31 @@
                 </router-link>
             </li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                <router-link to="/home/photolist"  class="textDecoration">
+                <router-link to="/home/photolist" class="textDecoration">
                     <img src="../../common/images/liugongge/menu2.png" alt="">
                     <div class="mui-media-body">图片分享</div>
                 </router-link>
             </li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                <router-link to="/home/goodslist"  class="textDecoration">
+                <router-link to="/home/goodslist" class="textDecoration">
                     <img src="../../common/images/liugongge/menu3.png" alt="">
                     <div class="mui-media-body">商品购买</div>
                 </router-link>
             </li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                <a href="#"  class="textDecoration">
+                <a href="#" class="textDecoration">
                     <img src="../../common/images/liugongge/menu4.png" alt="">
                     <div class="mui-media-body">留言反馈</div>
                 </a>
             </li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                <a href="#"  class="textDecoration">
+                <a href="#" class="textDecoration">
                     <img src="../../common/images/liugongge/menu5.png" alt="">
                     <div class="mui-media-body">视频专区</div>
                 </a>
             </li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                <a href="#"  class="textDecoration">
+                <a href="#" class="textDecoration">
                     <img src="../../common/images/liugongge/menu6.png" alt="">
                     <div class="mui-media-body">联系我们</div>
                 </a>
@@ -52,6 +48,7 @@
 </template>
 <script>
   import {Toast} from 'mint-ui';
+  import  swipe from '../childcomponents/swipe.vue'
   import  img01 from '../../common/images/carouselimg/01.jpg'
   import  img02 from '../../common/images/carouselimg/02.jpg'
   import  img03  from'../../common/images/carouselimg/03.jpg'
@@ -64,6 +61,9 @@
    import  menu5  from'../../common/images/liugongge/menu5.png'
    import  menu6  from'../../common/images/liugongge/menu6.png'*/
   export default{
+    components: {
+      swipe,
+    },
     data(){
       return {
         carouselList: [],
@@ -98,42 +98,20 @@
   }
 </script>
 <style lang="scss" scoped>
-    .mint-swipe {
-        height: 200px;
-        .mint-swipe-item {
-            /*sass交替选择器，并且嵌套*/
-            &:nth-of-type(1) {
-                background-color: red;
-            }
-            &:nth-of-type(2) {
-                background-color: green;
-            }
-            &:nth-of-type(3) {
-                background-color: yellow;
-            }
-            img {
-                height: 100%;
-                width: 100%;
-            }
-        }
-        /*.mint-swipe-item:nth-of-type(2) /:nth-child(2){
-           background-color: red;
-       }*/
-    }
 
     .mui-grid-view.mui-grid-9 {
         background-color: #fff;
         .mui-table-view-cell {
             border: none;
         }
-        .textDecoration{
+        .textDecoration {
             text-decoration: none;
         }
         img { //原来图片大小的一半
             width: 60px;
             height: 60px;
         }
-        .mui-media{
+        .mui-media {
             text-decoration: none;
         }
         .mui-media-body {

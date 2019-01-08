@@ -61,7 +61,34 @@
       git add -A 是将所有的修改都提交。你可以用git status查看当前的变化，然后通过git add xxx有选择的提交。
       git commit 是将变化先提交到本地。
       git push -u origin master
-
-
       git log --pretty=oneline
       --host 192.168.123.222
+
+    1.  跳转: a标签 ---标签跳转 -----(router-link);
+    2.  window.location.href -----编程式导航
+    3.  this.$router.push('/home/goodsinfo/'+id);-----路由导航对象，使用js代码实现路由前进、后退
+        id: this.$route.params.id-------路由参数对象
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

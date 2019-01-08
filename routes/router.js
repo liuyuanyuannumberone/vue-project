@@ -50,7 +50,7 @@ var router = new VueRouter({
     {path: '/home/photolist', component: PhotoList},
     {path: '/home/photoinfo/:id', component: Photoinfo},
     {path: '/home/goodslist',component: GoodsList},
-    {path: '/home/goodsinfo/:id',component: GoodsInfo},
+    {path: '/home/goodsinfo/:id', name:'goodsinfo' ,component: GoodsInfo},
     {path: '/member', component: MemberContainer},
     {path: '/shopcar', component: ShopcarContainer},
     {path: '/search', component: SearchContainer},

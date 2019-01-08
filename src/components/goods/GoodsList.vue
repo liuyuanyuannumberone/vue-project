@@ -1,7 +1,21 @@
 <template>
     <div class="goods-list">
         <!--以前的老方式，暂且不用，换一个-->
-       <!-- <router-link class="goods-item" v-for="item in goodslist " :key="item.id" :to="'/home/goodsinfo/'+item.id" tag="div">
+        <!-- <router-link class="goods-item" v-for="item in goodslist " :key="item.id" :to="'/home/goodsinfo/'+item.id" tag="div">
+             <img :src="item.img_url" alt="">
+             <h1 class="title">{{item.title}}</h1>
+             <div class="info">
+                 <p class="price">
+                     <span class="now">{{item.sell_price}}</span>
+                     <span class="old">{{item.market_price}}</span>
+                 </p>
+                 <p class="sell">
+                     <span>热卖中</span>
+                     <span>剩{{item.stock_quantity}}件</span>
+                 </p>
+             </div>
+         </router-link>-->
+        <div class="goods-item" v-for="item in goodslist " :key="item.id" @click="goDetail(item.id)">
             <img :src="item.img_url" alt="">
             <h1 class="title">{{item.title}}</h1>
             <div class="info">
@@ -14,7 +28,7 @@
                     <span>剩{{item.stock_quantity}}件</span>
                 </p>
             </div>
-        </router-link>-->
+        </div>
 
         <mt-button type="danger" size="large" @click="getMore">加载更多</mt-button>
     </div>
@@ -71,7 +85,7 @@
           },
         ];
         //vue-resource获取商品列表
-        /*  this.$http.get('api/getgoods/?pageindex=' + this.pageindex).then(res => {
+          /*  this.$http.get('api/getgoods/?pageindex=' + this.pageindex).then(res => {
            if (res.body.status === 0) {
            this.goodslist =this.goodslist.concat(res.body.message);
            } else {
@@ -82,7 +96,14 @@
       getMore(){
         this.pageindex++;
         this.getGoodsList();
-      }
+      },
+      goDetail(id){
+        console.log(this);  //输出vue router
+//         this.$router.push('/home/goodsinfo/'+id);  //第一种
+//         this.$router.push({path:'/home/goodsinfo/'+id}); //第二种
+        this.$router.push({name: 'goodsinfo', params: {id}})  //第三种  /*params: { id: id }}*/
+
+      },
     },
   }
 </script>
