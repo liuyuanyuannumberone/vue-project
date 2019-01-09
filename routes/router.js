@@ -22,6 +22,8 @@ import PhotoList from '../src/components/photos/PhotoList.vue'
 import Photoinfo from '../src/components/photos/Photoinfo.vue'
 import GoodsList from '../src/components/goods/GoodsList.vue'
 import GoodsInfo from '../src/components/goods/GoodsInfo.vue'
+import GoodsDesc from '../src/components/goods/GoodsDesc.vue'
+import GoodsComment from '../src/components/goods/GoodsComment.vue'
 
 
 var router = new VueRouter({
@@ -49,8 +51,10 @@ var router = new VueRouter({
     {path: '/home/newsinfo/:id', component: NewsInfo}, //带参数的路径
     {path: '/home/photolist', component: PhotoList},
     {path: '/home/photoinfo/:id', component: Photoinfo},
-    {path: '/home/goodslist',component: GoodsList},
-    {path: '/home/goodsinfo/:id', name:'goodsinfo' ,component: GoodsInfo},
+    {path: '/home/goodslist', component: GoodsList},
+    {path: '/home/goodsinfo/:id', name: 'goodsinfo', component: GoodsInfo},
+    {path: '/home/goodsdesc/:id', name: 'goodsdesc', component: GoodsDesc},
+    {path: '/home/goodscomment/:id', name: 'goodscomment', component: GoodsComment},
     {path: '/member', component: MemberContainer},
     {path: '/shopcar', component: ShopcarContainer},
     {path: '/search', component: SearchContainer},

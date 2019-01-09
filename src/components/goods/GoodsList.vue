@@ -102,7 +102,6 @@
 //         this.$router.push('/home/goodsinfo/'+id);  //第一种
 //         this.$router.push({path:'/home/goodsinfo/'+id}); //第二种
         this.$router.push({name: 'goodsinfo', params: {id}})  //第三种  /*params: { id: id }}*/
-
       },
     },
   }
