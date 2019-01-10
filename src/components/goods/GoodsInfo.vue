@@ -28,7 +28,7 @@
                             class="now_price">{{goodsinfo.sell_price}}</span>
                     </p>
                     <p>购买数量:
-                        <numberbox></numberbox>
+                        <numberbox @getCount="getSelectionCount" :max="goodsinfo.stock_quantity"></numberbox>
                     </p>
                     <div class="sell">
                         <mt-button type="primary" size="small">立即购买</mt-button>
@@ -75,6 +75,7 @@
         carousel: [],
         goodsinfo: {},
         ballFlag: false,
+        selectedCount: 1,  //默认一件
       }
     },
     created(){
@@ -111,7 +112,7 @@
           market_price: "￥2399",
           sell_price: "￥2199",
           goods_no: "8938293293290",
-          stock_quantity: "254",
+          stock_quantity: "15",
           add_time: new Date()
         }
         //vue-resource 获取商品详情
@@ -131,7 +132,6 @@
       },
       addToShopCar(){
         this.ballFlag = !this.ballFlag;
-//        console.log(this.$refs.ball);
       },
       beforeEnter(el){
         el.style.transform = "translate(0,0)";   //开始小球定位的位置，初始位置
@@ -149,11 +149,16 @@
         const yDist = badgePosition.top - ballPosition.top;
         el.style.transform = `translate(${xDist}px,${yDist}px)`;
 //          el.style.transform = "translate(95px,282px)";
-        el.style.transition = "all  1s cubic-bezier(.4,-0.3,1,.68) ";
+        el.style.transition = "all 0.5s cubic-bezier(.4,-0.3,1,.68) ";
         done();
       },
       afterEnter(el){
         this.ballFlag = !this.ballFlag;
+      },
+      getSelectionCount(count){
+//        console.log(count);// 无法输出
+        this.selectedCount = count;
+//        console.log(this.selectedCount);
       },
     },
   }
