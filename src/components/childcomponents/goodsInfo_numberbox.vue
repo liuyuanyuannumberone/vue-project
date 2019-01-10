@@ -22,7 +22,7 @@
     },  /*watch执行早于mount*/
     mounted(){
       mui('.mui-numbox').numbox();     //初始化numberbox
-      console.log(this.max);
+//      console.log(this.max);
     },
     methods: {
       //change事件触发，只要文本框的值发生改变，就会触发这个函数

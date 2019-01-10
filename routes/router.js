@@ -11,6 +11,7 @@ import register from '../src/components/subcomponents/register.vue'
 import vueEasyTable from '../src/components/vueEasyTable.vue'
 import vueEasyTableTwo from '../src/components/vueEasyTableTwo.vue'
 import tableBeautifyScrollbar from '../src/components/tableBeautifyScrollbar.vue'
+import  vuex from '../src/components/vuex.vue'
 
 import HomeContainer from '../src/components/tabbar/HomeContainer.vue'
 import MemberContainer from '../src/components/tabbar/MemberContainer.vue'
@@ -45,6 +46,7 @@ var router = new VueRouter({
     {path: '/vueEasyTable', component: vueEasyTable},
     {path: '/vueEasyTableTwo', component: vueEasyTableTwo},
     {path: '/tableBeautifyScrollbar', component: tableBeautifyScrollbar},
+    {path: '/vuex', component: vuex},
 
     {path: '/home', component: HomeContainer,},
     {path: '/home/newslist', component: NewsList},  //这样写也可以

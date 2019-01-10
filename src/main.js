@@ -25,6 +25,45 @@ import './index.css'
 
 //导入组件
 import Vue from 'vue'
+import Vuex from 'vuex'
+Vue.use(Vuex);
+//new Vuex.store()实例，得到一个数据存储对象;
+var store = new Vuex.Store({ //强大的双向绑定！
+   // data
+  state: {        //可以看作是data;专门用来存储数据
+    count: 0,
+    data: [],
+    list: [],
+  },
+  //methods
+  mutations: {    //可以看作是methods，如果操作state中的数据，只能通过调用mutations中的方法，不能直接在各自组件操作state中的数据,担心万一数据紊乱,无法查找原因;state固定
+    increment(state){
+      state.count++;
+    },
+    substact(state, index){   //最多支持两个参数;(state,commit提交的参数(对象，数组))
+      state.count -= index;
+    },
+    acceptData(state, data){
+      state.data = data;
+    },
+    listData(state, arr){
+      state.list = arr;
+    },
+    change(state, arr){
+      state.list = arr;
+    }
+  },
+  //  computed
+  getters: {
+    //只负责提供数据，不负责修改数据;如果想要修改state中的数据，mutation可以修改state中的数据；和computed类似，只要数据发生变化，就会触发getter;
+    optCount: function (state) {
+      return "当前最新的count值:" + state.count;
+    },
+    pushData: function (state) {
+      return state.data;
+    },
+  },
+});
 import "./components/global"
 import app from './app.vue'
 
@@ -100,7 +139,8 @@ var vm = new Vue({
   el: '#app',
   data: {},
   render: h => h(app),
-  router
+  router,
+  store,      //vuex全局使用;
 });
 console.log(test, test + '-----' + title + '-----' + content);
 
