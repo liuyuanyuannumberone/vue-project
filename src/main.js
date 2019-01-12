@@ -85,6 +85,33 @@ var store = new Vuex.Store({ //强大的双向绑定！
       }
       //当更新car后存储到本地;
       localStorage.setItem('car', JSON.stringify(state.car));
+    },
+    updateGoodsInfo(state, goodsinfo){   //修改购物车的商品数量值
+      state.car.some(item => {
+        if (item.id === goodsinfo.id) {
+          item.count = parseInt(goodsinfo.count);
+          return true;
+        }
+      });
+      localStorage.setItem('car', JSON.stringify(state.car));
+    },
+    removeFormCar(state, id){
+      state.car.some((item, index) => {
+        if (item.id === id) {
+          state.car.splice(index, 1);
+          return true;
+        }
+      });
+      localStorage.setItem('car', JSON.stringify(state.car));
+    },
+    updateGoodsSelected(state, info){
+      state.car.some(item => {
+        if (item.id === info.id) {
+          item.selsected = info.selected;
+          return true;
+        }
+      });
+      localStorage.setItem('car', JSON.stringify(state.car));
     }
   },
   getters: {  // computed只要数据发生变化，就会触发getter;只负责提供数据，不负责修改数据
@@ -101,7 +128,25 @@ var store = new Vuex.Store({ //强大的双向绑定！
         shopCount[item.id] = item.count;
       });
       return shopCount;
-    }
+    },
+    getGoodsSelected(state){
+      var select = {};
+      state.car.forEach(item => {
+        select[item.id] = item.selsected;
+      });
+      return select;
+    },
+    getGoodsCountAndAmount(state){
+      var info = {count: 0, amount: 0};  //勾选数量 勾选的总价
+      state.car.forEach(item => {
+        if (item.selsected) {
+          info.count += item.count;
+          info.amount += item.count * 2199;
+          /*这里由于加入商品信息时，将人名币符号加入,这里为了演示功能，所以将其去掉了*/
+        }
+      });
+      return info;
+    },
   },
 });
 

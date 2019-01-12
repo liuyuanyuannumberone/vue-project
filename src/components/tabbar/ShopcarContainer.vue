@@ -2,19 +2,20 @@
     <div class="shopcar-container">
         <!--商品区域-->
         <div class="goods-list">
-            <div class="mui-card" v-for="item in goodslist" :key="item.id">
+            <!--:key="item.id"-->
+            <div class="mui-card" v-for="(item,index) in goodslist" >
                 <div class="mui-card-content">
                     <div class="mui-card-content-inner">
-                        <mt-switch  ></mt-switch>
+                        <mt-switch v-model="$store.getters.getGoodsSelected[item.id]" @change="selectedChange(item.id,$store.getters.getGoodsSelected[item.id])"></mt-switch>
                         <img :src="item.thumb_path" alt="">
                         <div class="info">
                             <h1>{{item.title}}</h1>
                             <p>
-                                <numbox :initCount="$store.getters.getGoodsCount[item.id]"></numbox>
+                                <numbox :initCount="$store.getters.getGoodsCount[item.id]" :goodsId="item.id"></numbox>
                                 <!--如何从购物车中获取商品数量
                                 创建空对象，循环购物车的数据,把当前循环上的这条id最为对象的属性名，count作为值;{id:count}
                                 -->
-                                <a href="#">删除</a>
+                                <a href="#" @click.prevent="remove(item.id,index)">删除</a>
                             </p>
                         </div>
                     </div>
@@ -26,7 +27,13 @@
         <div class="mui-card">
             <div class="mui-card-content">
                 <div class="mui-card-content-inner">
-                    这是一个最简单的卡片视图控件；卡片视图常用来显示完整独立的一段信息，比如一篇文章的预览图、作者信息、点赞数量等
+                    <div class="left">
+                        <p>总计（不含运费)</p>
+                        <p>已勾选商品<span class="red">
+                            {{$store.getters.getGoodsCountAndAmount.count}}</span>件,
+                            总价:<span class="red">{{$store.getters.getGoodsCountAndAmount.amount}}</span></p>
+                    </div>
+                    <mt-button type="danger">去结算</mt-button>
                 </div>
             </div>
         </div>
@@ -62,7 +69,8 @@
           item.title = "小米(MI)小米Note 16G双网通版";
           item.sell_price = item.price;
           item.thumb_path = mobile;
-        })
+        });
+//        console.log(this.goodslist);
         //vue-resource获购物车数据
           /* this.$http.get('/api/goods/getshopcarlist/' + idArr.join(',')).then(res => {
            if (res.body.status === 0) {
@@ -70,6 +78,14 @@
            }
            })*/
       },
+      remove(id, index){
+        this.goodslist.splice(index, 1);   //删除索引为index的一个数据;删除要渲染的数组
+        this.$store.commit('removeFormCar', id);
+      },
+      selectedChange(id,selected){
+//          console.log(id,selected);
+          this.$store.commit('updateGoodsSelected',{id,selected});
+      }
     },
   }
 </script>
@@ -99,6 +115,16 @@
                     font-weight: bold;
                 }
             }
+        }
+        .mui-card-content-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+           .red{
+               color: red;
+               font-weight: bold;
+               font-size: 16px;
+           }
         }
     }
 </style>

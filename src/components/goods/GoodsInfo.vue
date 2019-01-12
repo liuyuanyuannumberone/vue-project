@@ -136,7 +136,7 @@
           id: this.id,
           count: this.selectedCount,
           price: this.goodsinfo.sell_price,
-          selsected: true
+          selsected: true,
         };  //拼接出一个保存到vuex的对象;
         this.$store.commit('addToCar', goodsinfo);
       },
