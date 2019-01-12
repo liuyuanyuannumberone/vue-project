@@ -28,42 +28,84 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 Vue.use(Vuex);
 //new Vuex.store()实例，得到一个数据存储对象;
+//vuex组件中的例子
+/*var store = new Vuex.Store({ //强大的双向绑定！
+ // data
+ state: {        //可以看作是data;专门用来存储数据
+ count: 0,
+ data: [],
+ list: [],
+ },
+ //methods
+ mutations: {    //可以看作是methods，如果操作state中的数据，只能通过调用mutations中的方法，不能直接在各自组件操作state中的数据,担心万一数据紊乱,无法查找原因;state固定
+ increment(state){
+ state.count++;
+ },
+ substact(state, index){   //最多支持两个参数;(state,commit提交的参数(对象，数组))
+ state.count -= index;
+ },
+ acceptData(state, data){
+ state.data = data;
+ },
+ listData(state, arr){
+ state.list = arr;
+ },
+ change(state, arr){
+ state.list = arr;
+ }
+ },
+ //  computed
+ getters: {
+ //只负责提供数据，不负责修改数据;如果想要修改state中的数据，mutation可以修改state中的数据；和computed类似，只要数据发生变化，就会触发getter;
+ optCount: function (state) {
+ return "当前最新的count值:" + state.count;
+ },
+ pushData: function (state) {
+ return state.data;
+ },
+ },
+ });*/
+var car = JSON.parse(localStorage.getItem('car') || '[]');  //先从本地存储中拿;
 var store = new Vuex.Store({ //强大的双向绑定！
-   // data
-  state: {        //可以看作是data;专门用来存储数据
-    count: 0,
-    data: [],
-    list: [],
+  state: {   // data
+    car: car,   //购物车商品数据{id:"小米" count:'3',price:'2199',selected:true};
   },
-  //methods
-  mutations: {    //可以看作是methods，如果操作state中的数据，只能通过调用mutations中的方法，不能直接在各自组件操作state中的数据,担心万一数据紊乱,无法查找原因;state固定
-    increment(state){
-      state.count++;
-    },
-    substact(state, index){   //最多支持两个参数;(state,commit提交的参数(对象，数组))
-      state.count -= index;
-    },
-    acceptData(state, data){
-      state.data = data;
-    },
-    listData(state, arr){
-      state.list = arr;
-    },
-    change(state, arr){
-      state.list = arr;
+  mutations: {    // methods 如果操作state中的数据，只能通过调用mutations中的方法最多支持两个参数
+    addToCar(state, goodsinfo){
+      //如果之前有这个商品，更新数据数量就可以;
+      var flag = false;
+      flag = state.car.some(item => {
+        if (item.id === goodsinfo.id) {
+          item.count += parseInt(goodsinfo.count);
+          return true;    //找到就终止循环;
+        }
+      });
+      if (!flag) {
+        state.car.push(goodsinfo);
+      }
+      //当更新car后存储到本地;
+      localStorage.setItem('car', JSON.stringify(state.car));
     }
   },
-  //  computed
-  getters: {
-    //只负责提供数据，不负责修改数据;如果想要修改state中的数据，mutation可以修改state中的数据；和computed类似，只要数据发生变化，就会触发getter;
-    optCount: function (state) {
-      return "当前最新的count值:" + state.count;
+  getters: {  // computed只要数据发生变化，就会触发getter;只负责提供数据，不负责修改数据
+    getAllCount: function (state) {  //===>>>>可以这样写getAllCount(state)
+      var allCount = 0;
+      state.car.forEach(item => {
+        allCount += item.count;
+      });
+      return allCount;
     },
-    pushData: function (state) {
-      return state.data;
-    },
+    getGoodsCount(state){
+      var shopCount = {};
+      state.car.forEach(item => {
+        shopCount[item.id] = item.count;
+      });
+      return shopCount;
+    }
   },
 });
+
+
 import "./components/global"
 import app from './app.vue'
 
@@ -125,6 +167,10 @@ Vue.use(VuePreview);
 //  import $ from 'jquery'
 // import  'jquery/dist/jquery.min'
 
+// import VueInputCode from 'vue-input-code';
+// import 'vue-input-code/dist/VueInputCode'
+
+
 import 'bootstrap/dist/js/bootstrap.min'
 import 'vue-easytable/umd/js/index'
 import test, {title, content} from './test.js'
@@ -133,6 +179,7 @@ import test, {title, content} from './test.js'
 // 注册到全局
 Vue.component(VTable.name, VTable);
 Vue.component(VPagination.name, VPagination);
+// Vue.component('VueInputCode', VueInputCode);
 
 
 var vm = new Vue({

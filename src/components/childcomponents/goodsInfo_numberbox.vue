@@ -19,7 +19,7 @@
 //        console.log(newVal);
         mui('.mui-numbox').numbox().setOption('max', newVal);
       }
-    },  /*watch执行早于mount*/
+    },
     mounted(){
       mui('.mui-numbox').numbox();     //初始化numberbox
 //      console.log(this.max);

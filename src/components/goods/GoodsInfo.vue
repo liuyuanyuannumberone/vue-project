@@ -132,6 +132,13 @@
       },
       addToShopCar(){
         this.ballFlag = !this.ballFlag;
+        var goodsinfo = {
+          id: this.id,
+          count: this.selectedCount,
+          price: this.goodsinfo.sell_price,
+          selsected: true
+        };  //拼接出一个保存到vuex的对象;
+        this.$store.commit('addToCar', goodsinfo);
       },
       beforeEnter(el){
         el.style.transform = "translate(0,0)";   //开始小球定位的位置，初始位置
