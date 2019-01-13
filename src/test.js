@@ -11,7 +11,17 @@ export default info   //在一个模块中，export default 只允许向外暴�
 export var title = '小星星1号';
 export var content = '小星星2号';
 
-
+/*
+* ES6简写    {name:name,id:id}====>{name,id};
+*             var cal={    //干掉了function
+*                 add1(){return 1},
+*                 add2(){return 2},
+*                 add3(n2){return n1},
+*             }
+*
+*
+*
+* */
 
 
 

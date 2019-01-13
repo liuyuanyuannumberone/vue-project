@@ -1,13 +1,21 @@
+/*
+*
+* webpack的配置文件
+* */
+
 var path = require('path');
-var webpack = require("webpack")
+var webpack = require("webpack");
 var htmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
-  entry: path.join(__dirname, './src/main.js'), // 入口文件
+  // entry: path.join(__dirname, './src/main.js'), // 入口文件
+  entry:{   //main是默认入口，也可以是多入口;上边的方式也可以写,同样正确；
+    main:'./src/main.js'
+  },
   output: {
     path: path.join(__dirname, './dist'), // 输出路径
     filename: 'bundle.js' // 指定输出文件的名称
   },
-  plugins: [
+  plugins: [   //插件的执行是依次执行
     new htmlWebpackPlugin({
       template: path.join(__dirname, './src/index.html'), // 指定模板文件路径
       filename: 'index.html' // 设置生成的内存页面的名称

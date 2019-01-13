@@ -154,6 +154,36 @@ var store = new Vuex.Store({ //强大的双向绑定！
 import "./components/global"
 import app from './app.vue'
 
+//导入axios,不需要use;这样就引入了;
+import Axios from 'axios'
+Vue.prototype.$axios = Axios;   //给vue挂载一个属性
+//配置请求根路径
+Axios.defaults.baseURI = 'http://vue.studyit.io';
+
+/*
+ *比vue-resource好用;
+ * post请求的时候，如果数据时字符串，默认头就是键值对，否则就是对象，application/json
+ * this.$axios.get(url,options);
+ * this.$axios.post(url,data,options);
+ * options:{params:{id:1},header:{''content-type-type:''}};
+ * 举例子：在组件中 this.$axios.get('',{params:{id:'123'})
+ * .then(res=>{
+ *  console.log(res);
+ * })
+ *  .catch(err=>{
+ *    console.log(err);
+ * })
+ *
+ *  this.$axios.post('','content=发送的内容')
+ *  then(res=>{
+ *  console.log(res);
+ *  })
+ *  .catch(err=>{
+ *       console.log(err);
+ *  })
+ * */
+
+
 //引入bootstrap-vue
 import BootstrapVue from 'bootstrap-vue'
 Vue.use(BootstrapVue);
@@ -218,8 +248,8 @@ Vue.use(VuePreview);
 
 import 'bootstrap/dist/js/bootstrap.min'
 import 'vue-easytable/umd/js/index'
-import test, {title, content} from './test.js'
-
+import test, {title, content} from './test.js'   // 默认导入(名字随便取) ,{按需导入，名称要匹配}
+import * as obj from './test'   //全部导入
 
 // 注册到全局
 Vue.component(VTable.name, VTable);
@@ -235,5 +265,6 @@ var vm = new Vue({
   store,      //vuex全局使用;
 });
 console.log(test, test + '-----' + title + '-----' + content);
+console.log(obj);
 
 
